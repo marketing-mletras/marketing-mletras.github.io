@@ -1,0 +1,27 @@
+View in the browser
+(#insertUrlLink)
+
+Unsubscribe
+(#insertUrlLink)
+
+Head Sushi Chef
+
+The finest sushi in Japan, the way it’s meant to be eaten, is unadorned, like a flower. It’s whole, unadorned, it’s just good sushi, my friend.
+
+Experience our sushi bar
+
+Our sushi bar has some amazing sushi with great variety, as well as dishes from other Asian regions including Korea, Japan, Thailand and Cambodia. We get our ingredients from local producers whenever possible.
+
+Dreaming of Sushi
+
+Watch Video
+(#insertUrlLink)
+
+Unsubscribe
+({{ email.unsubscribe }})
+
+View in the browser
+({{ email.view }})
+
+Tsukamoto Sogyo Building, Basement 1st Floor,
+2-15, Ginza 4-chome, Chuo-ku, Tokyo, Japan
