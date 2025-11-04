@@ -1,0 +1,20 @@
+/* Color Theme Swatches in Hex */
+.Accent-Color-1-hex { color: #F21B91; }
+.Accent-Color-2-hex { color: #04D99D; }
+.Accent-Color-3-hex { color: #F29F05; }
+.Accent-Color-4-hex { color: #F2F2F2; }
+.Accent-Color-5-hex { color: #0D0D0D; }
+
+/* Color Theme Swatches in RGBA */
+.Accent-Color-1-rgba { color: rgba(242, 27, 145, 1); }
+.Accent-Color-2-rgba { color: rgba(4, 217, 157, 1); }
+.Accent-Color-3-rgba { color: rgba(242, 159, 5, 1); }
+.Accent-Color-4-rgba { color: rgba(242, 242, 242, 1); }
+.Accent-Color-5-rgba { color: rgba(13, 13, 13, 1); }
+
+/* Color Theme Swatches in HSLA */
+.Accent-Color-1-hsla { color: hsla(327, 89, 52, 1); }
+.Accent-Color-2-hsla { color: hsla(163, 96, 43, 1); }
+.Accent-Color-3-hsla { color: hsla(38, 95, 48, 1); }
+.Accent-Color-4-hsla { color: hsla(0, 0, 94, 1); }
+.Accent-Color-5-hsla { color: hsla(0, 0, 5, 1); }
