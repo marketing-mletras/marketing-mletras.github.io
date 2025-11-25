@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Natal - Via Lúdica - Presentes de Livros Infantis</title>
+  <meta name="description" content="Encontre os melhores presentes de livros infantis para o Natal. Seleção curada por faixa etária e tema.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mozilla+Text:wght@200..700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       DESIGN TOKENS - FANCY FRAMEWORK
+       ============================================ */
+
+    :root {
+      /* Spacing - Do fancy-variables.json */
+      --space-xs: clamp(0.56rem, calc(0.56rem + 0.0022 * (100vw - 480px)), 0.69rem);
+      --space-s: clamp(0.81rem, calc(0.81rem + 0.0033 * (100vw - 480px)), 1.00rem);
+      --space-m: clamp(1.25rem, calc(1.25rem + 0.0044 * (100vw - 480px)), 1.50rem);
+      --space-l: clamp(1.88rem, calc(1.88rem + 0.0067 * (100vw - 480px)), 2.25rem);
+      --space-xl: clamp(2.81rem, calc(2.81rem + 0.0100 * (100vw - 480px)), 3.38rem);
+      --space-xxl: clamp(4.25rem, calc(4.25rem + 0.0144 * (100vw - 480px)), 5.06rem);
+      --space-section: clamp(6.25rem, calc(6.25rem + 0.0222 * (100vw - 480px)), 7.50rem);
+
+      /* Typography - Do fancy-variables.json */
+      --h1: clamp(2.75rem, calc(2.75rem + 0.0122 * (100vw - 480px)), 3.44rem);
+      --h2: clamp(2.19rem, calc(2.19rem + 0.0100 * (100vw - 480px)), 2.75rem);
+      --h3: clamp(1.75rem, calc(1.75rem + 0.0078 * (100vw - 480px)), 2.19rem);
+      --h4: clamp(1.38rem, calc(1.38rem + 0.0067 * (100vw - 480px)), 1.75rem);
+      --h5: clamp(1.13rem, calc(1.13rem + 0.0044 * (100vw - 480px)), 1.38rem);
+      --h6: clamp(0.88rem, calc(0.88rem + 0.0044 * (100vw - 480px)), 1.13rem);
+
+      --text-xs: clamp(0.63rem, calc(0.63rem + 0.0022 * (100vw - 480px)), 0.75rem);
+      --text-s: clamp(0.81rem, calc(0.81rem + 0.0011 * (100vw - 480px)), 0.88rem);
+      --text-m: clamp(1.00rem, calc(1.00rem + 0.0022 * (100vw - 480px)), 1.13rem);
+      --text-mm: clamp(1.13rem, calc(1.13rem + 0.0022 * (100vw - 480px)), 1.25rem);
+      --text-l: clamp(1.25rem, calc(1.25rem + 0.0033 * (100vw - 480px)), 1.44rem);
+      --text-xl: clamp(1.56rem, calc(1.56rem + 0.0033 * (100vw - 480px)), 1.75rem);
+      --text-xxl: clamp(1.94rem, calc(1.94rem + 0.0044 * (100vw - 480px)), 2.19rem);
+
+      --text-line-height: calc(10px + 2ex);
+      --heading-line-height: calc(7px + 2ex);
+      --text-font-weight: 400;
+      --heading-font-weight: 700;
+
+      /* Grid & Gaps - Do fancy-variables.json */
+      --grid-gap: var(--space-l) var(--space-m);
+      --grid-gap-s: var(--space-m) var(--space-s);
+      --card-gap: var(--space-m);
+      --content-gap: calc(var(--space-m) * 1.5);
+      --container-gap: var(--space-xl);
+      --padding-section: var(--space-xl) var(--space-m);
+
+      /* Radius - Do fancy-variables.json */
+      --radius: 20px;
+      --radius-inside: calc(var(--radius) * 0.5);
+      --radius-outside: calc(var(--radius) * 1.4);
+      --radius-btn: 0.3em;
+      --radius-pill: 9999px;
+      --radius-circle: 50%;
+      --radius-s: 14px;
+      --radius-m: 20px;
+      --radius-l: 30px;
+      --radius-xl: 45px;
+
+      /* Colors - Do fancy-variables.json (Natalinas) */
+      --primary: #146537;
+      --primary-dark: #10512c;
+      --primary-ultra-dark: #0c3d21;
+      --primary-light: #dce8e1;
+      --primary-ultra-light: #f3f7f5;
+      --primary-trans-10: rgba(20, 101, 55, 0.1);
+      --primary-trans-20: rgba(20, 101, 55, 0.2);
+      --primary-trans-30: rgba(20, 101, 55, 0.3);
+      --primary-trans-50: rgba(20, 101, 55, 0.5);
+
+      --secondary: #dbaead;
+      --secondary-dark: #af8b8a;
+      --secondary-ultra-dark: #836868;
+      --secondary-light: #faf3f3;
+      --secondary-ultra-light: #fdfbfb;
+
+      --accent: #d14f4b;
+      --accent-dark: #a73f3c;
+      --accent-ultra-dark: #7d2f2d;
+      --accent-light: #f8e5e4;
+      --accent-ultra-light: #fdf6f6;
+
+      --base: #717171;
+      --base-dark: #5a5a5a;
+      --base-ultra-dark: #444444;
+      --base-light: #eaeaea;
+      --base-ultra-light: #f8f8f8;
+      --white: #ffffff;
+      --black: #000000;
+
+      /* Custom - Natalinas do briefing */
+      --gold: #dda717;
+      --gold-dark: #c4921c;
+      --blue-dark: #264176;
+      --blue-ultra-dark: #1a2f52;
+      --bg-cream: #fffaf8;
+      --bg-peachy: #fdeae0;
+
+      /* Text Colors */
+      --text-color: var(--base);
+      --heading-color: var(--base-ultra-dark);
+
+      /* Border */
+      --border-color: var(--base-light);
+
+      /* Grid System - Do fancy-variables.json */
+      --grid-1: repeat(1, minmax(0, 1fr));
+      --grid-2: repeat(2, minmax(0, 1fr));
+      --grid-3: repeat(3, minmax(0, 1fr));
+      --grid-4: repeat(4, minmax(0, 1fr));
+
+      /* Offset */
+      --offset: 80px;
+    }
+
+    /* ============================================
+       RESET & BASE
+       ============================================ */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-size: var(--text-m);
+      color: var(--text-color);
+      font-family: 'Inter', sans-serif;
+      font-weight: var(--text-font-weight);
+      line-height: var(--text-line-height);
+      background-color: var(--bg-cream);
+      overflow-x: clip;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Mozilla Text', sans-serif;
+      line-height: var(--heading-line-height);
+      color: var(--heading-color);
+      font-weight: var(--heading-font-weight);
+    }
+
+    h1 { font-size: var(--h1); }
+    h2 { font-size: var(--h2); }
+    h3 { font-size: var(--h3); }
+    h4 { font-size: var(--h4); }
+
+    p {
+      margin-bottom: var(--space-m);
+      line-height: 1.8;
+    }
+
+    section {
+      padding: var(--space-xl) var(--space-m);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-m);
+    }
+
+    /* ============================================
+       BUTTONS
+       ============================================ */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.625rem 1.75rem;
+      font-size: var(--text-s);
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.2s ease-out;
+      min-height: 44px;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--white);
+      box-shadow: 0 2px 8px rgba(20, 101, 55, 0.15);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(20, 101, 55, 0.25);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      background-color: var(--accent);
+      color: var(--white);
+      box-shadow: 0 2px 8px rgba(209, 79, 75, 0.15);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(209, 79, 75, 0.25);
+    }
+
+    .btn-ghost {
+      background-color: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-ghost:hover {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    /* ============================================
+       HERO - DOBRA 1
+       ============================================ */
+
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-ultra-dark) 100%);
+      color: var(--white);
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: var(--space-xl) var(--space-m);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -5%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -5%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      color: var(--white);
+      margin-bottom: var(--space-m);
+      font-size: var(--h1);
+      letter-spacing: -0.02em;
+    }
+
+    .hero h2 {
+      color: rgba(255, 255, 255, 0.95);
+      margin-bottom: var(--space-l);
+      font-size: var(--h3);
+      font-weight: 400;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: var(--space-m);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-ghost {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: var(--white);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .btn-hero-ghost:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* ============================================
+       CATEGORIAS POR IDADE - DOBRA 2
+       ============================================ */
+
+    .section-categories {
+      background-color: var(--bg-cream);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: var(--space-l);
+      color: var(--primary);
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: var(--grid-1);
+      gap: var(--grid-gap);
+    }
+
+    @media (min-width: 768px) {
+      .categories-grid {
+        grid-template-columns: var(--grid-3);
+      }
+    }
+
+    .category-card {
+      background: var(--white);
+      border-radius: var(--radius-l);
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .category-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .category-image {
+      width: 100%;
+      height: 140px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .category-card:nth-child(2) .category-image {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    }
+
+    .category-card:nth-child(3) .category-image {
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+    }
+
+    .category-content {
+      padding: var(--space-l);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .category-card h3 {
+      color: var(--primary);
+      margin-bottom: var(--space-m);
+      font-size: var(--h3);
+    }
+
+    .category-card:nth-child(2) h3 {
+      color: var(--accent);
+    }
+
+    .category-card:nth-child(3) h3 {
+      color: var(--secondary);
+    }
+
+    .category-card p {
+      color: var(--text-color);
+      margin-bottom: var(--space-m);
+      font-size: var(--text-s);
+      flex: 1;
+      line-height: 1.6;
+    }
+
+    .books-preview {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: var(--space-l);
+      justify-content: center;
+    }
+
+    .book-cover {
+      width: 50px;
+      height: 75px;
+      border-radius: var(--radius-s);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 0.625rem;
+      font-weight: 600;
+      text-align: center;
+      padding: var(--space-xs);
+    }
+
+    .book-cover:nth-child(1) {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    }
+
+    .book-cover:nth-child(2) {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    }
+
+    .category-card:nth-child(2) .book-cover:nth-child(1) {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    }
+
+    .category-card:nth-child(2) .book-cover:nth-child(2) {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    }
+
+    .category-card:nth-child(3) .book-cover:nth-child(1) {
+      background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+    }
+
+    .category-card:nth-child(3) .book-cover:nth-child(2) {
+      background: linear-gradient(135deg, var(--blue-dark), var(--blue-ultra-dark));
+    }
+
+    .category-card .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ============================================
+       VITRINE - DOBRA 3 & 5
+       ============================================ */
+
+    .section-vitrine {
+      background-color: var(--bg-peachy);
+    }
+
+    .vitrine-placeholder {
+      background: var(--white);
+      border-radius: var(--radius-l);
+      padding: var(--space-l);
+      text-align: center;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed var(--base-light);
+    }
+
+    .vitrine-placeholder h3 {
+      color: var(--primary);
+      margin-bottom: var(--space-m);
+      font-size: var(--h3);
+    }
+
+    .vitrine-placeholder p {
+      color: var(--base);
+      max-width: 400px;
+      font-size: var(--text-s);
+    }
+
+    /* ============================================
+       PRESENTES ATÉ R$ 50 - DOBRA 4
+       ============================================ */
+
+    .section-price {
+      background: var(--white);
+    }
+
+    .price-banner {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      border-radius: var(--radius-l);
+      padding: var(--space-l);
+      margin-bottom: var(--space-l);
+      color: var(--white);
+    }
+
+    .price-banner h2 {
+      color: var(--white);
+      margin-bottom: var(--space-m);
+      font-size: var(--h2);
+    }
+
+    .price-banner p {
+      color: rgba(255, 255, 255, 0.95);
+      margin-bottom: var(--space-l);
+      max-width: 500px;
+    }
+
+    .price-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: var(--space-m);
+    }
+
+    .price-gallery img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: var(--radius-m);
+      transition: transform 0.3s ease;
+    }
+
+    .price-gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-price-white {
+      background-color: var(--white);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .btn-price-white:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* ============================================
+       CATEGORIAS POR TEMA - DOBRA 6
+       ============================================ */
+
+    .section-themes {
+      background-color: var(--bg-cream);
+    }
+
+    .themes-grid {
+      display: grid;
+      grid-template-columns: var(--grid-1);
+      gap: var(--grid-gap);
+    }
+
+    @media (min-width: 768px) {
+      .themes-grid {
+        grid-template-columns: var(--grid-2);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .themes-grid {
+        grid-template-columns: var(--grid-4);
+      }
+    }
+
+    .theme-card {
+      background: linear-gradient(135deg, var(--bg-peachy) 0%, rgba(219, 174, 173, 0.3) 100%);
+      border-radius: var(--radius-l);
+      padding: var(--space-l);
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(20, 101, 55, 0.08);
+    }
+
+    .theme-card:nth-child(1) {
+      background: linear-gradient(135deg, rgba(20, 101, 55, 0.08) 0%, rgba(219, 174, 173, 0.15) 100%);
+    }
+
+    .theme-card:nth-child(2) {
+      background: linear-gradient(135deg, rgba(209, 79, 75, 0.08) 0%, rgba(219, 174, 173, 0.15) 100%);
+    }
+
+    .theme-card:nth-child(3) {
+      background: linear-gradient(135deg, rgba(38, 65, 118, 0.08) 0%, rgba(219, 174, 173, 0.15) 100%);
+    }
+
+    .theme-card:nth-child(4) {
+      background: linear-gradient(135deg, rgba(221, 167, 23, 0.08) 0%, rgba(219, 174, 173, 0.15) 100%);
+    }
+
+    .theme-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .theme-icon {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-m);
+    }
+
+    .theme-card h3 {
+      color: var(--primary);
+      margin-bottom: var(--space-m);
+      font-size: var(--h3);
+    }
+
+    .theme-card:nth-child(2) h3 {
+      color: var(--accent);
+    }
+
+    .theme-card:nth-child(3) h3 {
+      color: var(--blue-dark);
+    }
+
+    .theme-card:nth-child(4) h3 {
+      color: var(--gold);
+    }
+
+    .theme-card p {
+      color: var(--text-color);
+      font-size: var(--text-s);
+      margin-bottom: var(--space-m);
+      line-height: 1.6;
+    }
+
+    .theme-card .btn {
+      align-self: center;
+      margin-top: auto;
+    }
+
+    /* ============================================
+       MEMENTO VIVERE - DOBRA 7
+       ============================================ */
+
+    .section-memento {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+    }
+
+    .memento-container {
+      display: grid;
+      grid-template-columns: var(--grid-1);
+      gap: var(--space-l);
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .memento-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .memento-image {
+      width: 100%;
+      height: 250px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-l);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      font-weight: 700;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .memento-content h2 {
+      color: var(--white);
+      margin-bottom: var(--space-m);
+    }
+
+    .memento-content p {
+      color: rgba(255, 255, 255, 0.95);
+      margin-bottom: var(--space-m);
+      line-height: 1.8;
+      font-size: var(--text-s);
+    }
+
+    .memento-content .btn {
+      background-color: var(--white);
+      color: var(--primary);
+      margin-top: var(--space-m);
+    }
+
+    .memento-content .btn:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+
+    footer {
+      background-color: var(--black);
+      color: var(--white);
+      padding: var(--space-xl) var(--space-m);
+      text-align: center;
+    }
+
+    footer p {
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0;
+      font-size: var(--text-xs);
+    }
+
+    footer p + p {
+      margin-top: var(--space-s);
+    }
+
+    /* ============================================
+       UTILITIES
+       ============================================ */
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* ============================================
+       PREFERS REDUCED MOTION
+       ============================================ */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ============================================
+       SCROLL MARGIN
+       ============================================ */
+
+    [id] {
+      scroll-margin-top: 80px;
+    }
+  </style>
+</head>
+<body>
+  <!-- ============================================
+       DOBRA 1 - BANNER HERO
+       ============================================ -->
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <h1>Feliz Natal</h1>
+      <h2>O melhor presente é estar presente.</h2>
+
+      <div class="hero-cta">
+        <a href="#categorias" class="btn btn-primary">Explorar Presentes</a>
+        <a href="#temas" class="btn btn-hero-ghost">Conhecer Mais</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       DOBRA 2 - CATEGORIAS POR IDADE
+       ============================================ -->
+  <section class="section-categories" id="categorias">
+    <div class="container">
+      <h2 class="section-title">Acerte no Presente</h2>
+
+      <div class="categories-grid">
+        <!-- Categoria 0-3 anos -->
+        <article class="category-card">
+          <div class="category-image">👶</div>
+          <div class="category-content">
+            <h3>0 a 3 Anos</h3>
+            <p>Descobertas sensoriais e primeiros contatos com histórias que encantam os pequeninos.</p>
+
+            <div class="books-preview">
+              <div class="book-cover"></div>
+              <div class="book-cover"></div>
+            </div>
+
+            <a href="#" class="btn btn-primary">Explorar</a>
+          </div>
+        </article>
+
+        <!-- Categoria 4-6 anos -->
+        <article class="category-card">
+          <div class="category-image">📚</div>
+          <div class="category-content">
+            <h3>4 a 6 Anos</h3>
+            <p>Aventuras que despertam a imaginação e histórias com lições de amizade.</p>
+
+            <div class="books-preview">
+              <div class="book-cover"></div>
+              <div class="book-cover"></div>
+            </div>
+
+            <a href="#" class="btn btn-primary">Explorar</a>
+          </div>
+        </article>
+
+        <!-- Categoria 7-9 anos -->
+        <article class="category-card">
+          <div class="category-image">🎯</div>
+          <div class="category-content">
+            <h3>7 a 9 Anos</h3>
+            <p>Leitura com propósito que desenvolve pensamento crítico e expande horizontes.</p>
+
+            <div class="books-preview">
+              <div class="book-cover"></div>
+              <div class="book-cover"></div>
+            </div>
+
+            <a href="#" class="btn btn-primary">Explorar</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       DOBRA 3 - VITRINE PERFORMA.AI
+       ============================================ -->
+  <section class="section-vitrine" id="vitrine-1">
+    <div class="container">
+      <h2 class="section-title">Destaques Especiais</h2>
+
+      <div class="vitrine-placeholder">
+        <h3>🎁 Vitrine de Produtos</h3>
+        <p>Conteúdo dinâmico da Performa.ai será integrado aqui com recomendações personalizadas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       DOBRA 4 - PRESENTES ATÉ R$ 50
+       ============================================ -->
+  <section class="section-price" id="presentes-50">
+    <div class="container">
+      <div class="price-banner">
+        <h2>Presentes até R$ 50,00!</h2>
+        <p>Qualidade editorial sem comprometer seu orçamento. Edições especiais de Natal com seleção curada para cada idade.</p>
+        <a href="#" class="btn btn-price-white">Confira Todos</a>
+      </div>
+
+      <div class="price-gallery">
+        <img src="https://placehold.co/140x200/146537/ffffff?text=Livro+1" alt="Livro infantil 1 até R$ 50">
+        <img src="https://placehold.co/140x200/d14f4b/ffffff?text=Livro+2" alt="Livro infantil 2 até R$ 50">
+        <img src="https://placehold.co/140x200/dbaead/ffffff?text=Livro+3" alt="Livro infantil 3 até R$ 50">
+        <img src="https://placehold.co/140x200/dda717/ffffff?text=Livro+4" alt="Livro infantil 4 até R$ 50">
+        <img src="https://placehold.co/140x200/264176/ffffff?text=Livro+5" alt="Livro infantil 5 até R$ 50">
+        <img src="https://placehold.co/140x200/10512c/ffffff?text=Livro+6" alt="Livro infantil 6 até R$ 50">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       DOBRA 5 - VITRINE PERFORMA.AI (2)
+       ============================================ -->
+  <section class="section-vitrine" id="vitrine-2">
+    <div class="container">
+      <h2 class="section-title">Mais Recomendações</h2>
+
+      <div class="vitrine-placeholder">
+        <h3>🌟 Vitrine de Produtos II</h3>
+        <p>Segunda integração com curadoria diferenciada baseada em comportamento e preferências.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       DOBRA 6 - CATEGORIAS POR TEMA
+       ============================================ -->
+  <section class="section-themes" id="temas">
+    <div class="container">
+      <h2 class="section-title">O Presente Certo para Todos os Momentos</h2>
+
+      <div class="themes-grid">
+        <article class="theme-card">
+          <div class="theme-icon">⚔️</div>
+          <h3>Aventura & Mistério</h3>
+          <p>Histórias cheias de ação que fazem o coração bater mais rápido.</p>
+          <a href="#" class="btn btn-primary">Explorar</a>
+        </article>
+
+        <article class="theme-card">
+          <div class="theme-icon">🤝</div>
+          <h3>Amizade & Solidariedade</h3>
+          <p>Narrativas que celebram as conexões e laços que nos unem.</p>
+          <a href="#" class="btn btn-primary">Explorar</a>
+        </article>
+
+        <article class="theme-card">
+          <div class="theme-icon">🌿</div>
+          <h3>Natureza & Sustentabilidade</h3>
+          <p>Histórias que despertam respeito pelo planeta e seus seres.</p>
+          <a href="#" class="btn btn-primary">Explorar</a>
+        </article>
+
+        <article class="theme-card">
+          <div class="theme-icon">✨</div>
+          <h3>Fantasia & Magia</h3>
+          <p>Mundos extraordinários que expandem a imaginação sem limites.</p>
+          <a href="#" class="btn btn-primary">Explorar</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       DOBRA 7 - MEMENTO VIVERE
+       ============================================ -->
+  <section class="section-memento" id="memento">
+    <div class="container">
+      <div class="memento-container">
+        <div class="memento-image">📖</div>
+
+        <div class="memento-content">
+          <h2>Um Presente para uma Vida Mais Plena e Feliz</h2>
+          <p>Memento Vivere: uma reflexão sobre o valor do tempo, da leitura e dos momentos compartilhados em família.</p>
+          <p>Pelo autor Braga — Uma jornada que começa nas páginas e segue para o coração.</p>
+          <a href="#" class="btn">Conhecer</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Via Lúdica. Presentes que criam memórias duradouras.</p>
+      <p>Protótipo Visual Responsivo • Mobile-First • Acessibilidade WCAG AA</p>
+    </div>
+  </footer>
+</body>
+</html>
